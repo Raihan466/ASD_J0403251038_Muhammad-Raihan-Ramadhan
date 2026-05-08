@@ -1,0 +1,43 @@
+# ====================================
+# Nama  : Muhammad Raihan Ramadhan
+# NIM   : J0403251038
+# Kelas : A2
+# ====================================
+
+
+# Membuat data dict untuk menggunakan huruf sebagai node
+data_dict = {
+    "A" : 0,
+    "B" : 1,
+    "C" : 2,
+    "D" : 3
+}
+
+# Fungsi adjajency list undirected
+def createGraph(V, edges):
+    adj = [[] for _ in range(V)]
+
+    for it in edges:
+        u = data_dict[it[0]]
+        v = data_dict[it[1]]
+        adj[u].append(v)
+
+        adj[v].append(u)
+    return adj
+
+if __name__ == "__main__":
+    V = 4
+
+    # Himpunan edges
+    edges = [["A","B"], ["A","C"], ["D","C"], ["D","B"], ["B", "C"]]
+
+    adj = createGraph(V, edges)
+
+    print("contoh adjacency list undirected")
+    for i in range(V):
+        
+        print(f"{i}:", end=" ")
+        for j in adj[i]:
+
+            print(j, end="")
+        print()
